@@ -1,0 +1,51 @@
+import codigo.veterinaria.*
+import codigo.animales.*
+
+describe "huellitas" {
+
+    test "Huellitas comienza con botiquien lleno de"{
+        assert.equals(["Venda", "Venda", "Venda", "Pervinox", "Alcohol", "Gasas"], huellitas.botiquin())
+    }
+    test "huellitas tine de pacientes a"{
+        assert.equals(#{nano, pepita, kali}, huellitas.pacientes())
+    }
+
+    /*test "Hay un MATE en el botiquin luego de agregarlo"{
+        huellitas.agregarAlBotiquin("MATE")
+        assert.that(huellitas.botiquin.contains("MATE"))
+    }*/
+
+    test "Hay un MATE en el botiquin luego de agregarlo"{
+        huellitas.agregarAlBotiquin("MATE")
+        assert.equals(["Venda", "Venda", "Venda", "Pervinox", "Alcohol", "Gasas","MATE"],huellitas.botiquin())
+    }
+
+    test "No se necesitan comprar vendas inicialmente"{
+        assert.notThat(huellitas.necesitaComprarVendas())
+    }
+    test "huellitas tiene 2 pacientes luego de DAr de alta a kali"{
+        huellitas.darDeAlta(kali)
+        assert.equals(2, huellitas.cantidadDePacientes())
+    }   
+    test "huellitas tiene 4 pacientes luego de agrewgar a Pablo como paciente"{
+        huellitas.agregarPaciente(pablo)
+        assert.equals(4,huellitas.cantidadDePacientes())
+    }
+    test "huellitas tiene 3 pacienets inicialmente"{
+        assert.equals(3, huellitas.cantidadDePacientes())
+    }
+
+    test "todos son pacientes recuperados luego de curar a todos"{
+        huellitas.curarATodos()
+        assert.equals(#{nano, pepita, kali}, huellitas.pacientesRecuperados())
+    }
+
+    test "Los responsables de pacientes son"{
+        assert.equals(#{"Ro","Gus","Dani"}, huellitas.responsablesDePacientes())
+    }
+
+    test "el mas energico luego de curarlos a todos es nano"{
+        huellitas.curarATodos()
+        assert.equals(nano, huellitas.pacienteMasEnergetico())
+    }
+}

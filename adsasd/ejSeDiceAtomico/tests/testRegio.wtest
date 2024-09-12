@@ -1,0 +1,9 @@
+
+import codigo.region.*
+import codigo.centralesElectricas.*
+import codigo.ciudades.*
+describe "Region"{
+    test "Las centrales mas productoras de la region son"{
+        assert.equals(#{hidroElectrica,carbonExBosque}, region.centralesMasProductoras())
+    }
+}

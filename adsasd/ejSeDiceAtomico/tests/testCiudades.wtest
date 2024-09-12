@@ -1,0 +1,19 @@
+import codigo.ciudades.*
+import codigo.centralesElectricas.*
+describe "Sprinfield"{
+    test "Las centrales contaminantes de sprinfield es ExBosque"{
+        assert.equals(#{carbonExBosque},sprinfield.centralesContaminantes() )
+    }
+    test "Sprinfield si cubre su necesidad energetica, si esta es 20"{
+        assert.that(sprinfield.cubrioSusNecesidadesEnergeticas(20))
+    }
+    test "Sprinfiel esta al horno si su necesidad es de 30"{
+        assert.that(sprinfield.estaAlHorno(30))
+    }
+}
+
+describe "Albuquerque"{
+    test "La central mas productora es la hidroelectrica"{
+        assert.equals(hidroElectrica, albuquerque.centralMasProductora())
+    }
+}

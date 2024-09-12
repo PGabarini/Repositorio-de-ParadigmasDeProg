@@ -1,0 +1,98 @@
+
+
+import codigo.animales.*
+
+describe "pepita" {
+  test "pepita tiene una energia inicial" {
+    assert.equals(100, pepita.energia())
+  }
+
+  test "pepita tiene a Gus como responsable" {
+    assert.equals("Gus", pepita.responsable())
+  }
+
+  test "pepita no esta feliz inicialmente" {
+    assert.notThat(pepita.estaFeliz())
+  }
+
+  test "pepita esta feliz luego de volar hacia Lihuel Calel" {
+    pepita.volarHacia("Lihuel Calel")
+    assert.that(pepita.estaFeliz())
+  }
+
+  test "la energia de pepita es 101 si come 2 gramos" {
+    pepita.comer(2)
+    assert.equals(101, pepita.energia())
+  }
+
+  test "Pepita esta feliz luego de ser curada" {
+    pepita.curar()
+    assert.that(pepita.estaFeliz())
+  }
+
+  test "Pepita esta inicialmente en General las Heras"{
+    assert.equals("General las Heras",pepita.dondeEsta())
+  }
+}
+
+describe "kali" {
+
+    test "kali tienen una energia inicial de 100"{
+        assert.equals(100, kali.energia())
+    }
+    
+    test "kali tiene como responsable a Dani"{
+        assert.equals("Dani", kali.responsable())
+    }
+    test "Kali comienza con 15 años"{
+        assert.equals(15, kali.edad())
+    }
+    test "kali tiene 110 de enegria luego de comer 10 gramos"{
+        kali.comer(10)
+        assert.equals(110, kali.energia())
+    }
+
+    test "kali tiene 16 años luego de cumplir un año"{
+        kali.cumplirAnios()
+        assert.equals(16, kali.edad())
+    }
+
+    test "Kali esta feliz con su energia inicial"{
+        assert.that(kali.estaFeliz())
+    }
+
+    test "Kali tiene 500 de energia luego de ser curada"{
+        kali.curar()
+        assert.equals(500,kali.energia())
+    }
+}
+
+describe "nano" {
+
+    test "Nano comienza con 100 de energia"{
+        assert.equals(100, nano.energia())
+    }
+    test "Nano tiene a Ro como responsable"{
+        assert.equals("Ro", nano.responsable())
+    }
+    test "Nano tiene 400 de energia luego de comer 150 gramos"{
+        nano.comer(150)
+        assert.equals(400, nano.energia())
+    }
+    test "Nano tiene 70 de energia luego de galopar 30 metros"{
+        nano.galopar(30)
+        assert.equals(70, nano.energia())
+    }
+    test "Nano esta feliz"{
+        assert.that(nano.estaFeliz())
+    }
+    test "Nano tiene 6092 de energia luego de ser curado"{
+        nano.curar()
+        assert.equals(6092,nano.energia())
+    }
+
+    test "Nano esta feliz luego de ser curado"{
+        nano.curar()
+        assert.that(nano.estaFeliz())
+    }
+}

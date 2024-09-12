@@ -1,0 +1,43 @@
+import codigo.centralesElectricas.*
+import codigo.ciudades.*
+describe "Central Atomica"{
+
+    test "Inicialmente tiene 10 varillas de uranio"{
+        assert.equals(10, atomicaBurns.cantVarillasdeUranio())
+            }
+    test "inicialmente tiene una produccion energetica de 1"{
+        assert.equals(1, atomicaBurns.produccionEnergetica(sprinfield))
+    }
+    test "inicialmente no contamina al medio ambiente"{
+        assert.notThat(atomicaBurns.contamina())
+    }
+
+}
+
+describe "Central de Carbon"{
+
+    test "la central siempre contamina"{
+        assert.that(carbonExBosque.contamina())
+    }
+
+    test "la central produce 18.5 en sprinfield"{
+        assert.equals(18.5,carbonExBosque.produccionEnergetica(sprinfield))
+    }
+}
+
+describe "Central eolica"{
+
+    test "la central nunca contamina"{
+        assert.notThat(eolicaElSuspiro.contamina())
+    }
+    test "La central produce 2 en sprinfield"{
+        assert.equals(2, eolicaElSuspiro.produccionEnergetica(sprinfield))
+    }
+
+}
+
+describe "Central hidroElectrica" {
+  test "la produccion es de 300 en la ciudad de albuqerque" {
+    assert.equals(300,hidroElectrica.produccionEnergetica(albuquerque))
+  }
+}
