@@ -1,0 +1,50 @@
+
+import codigo.habitantes.gandalf
+import codigo.habitantes.tomBombadil
+import codigo.armas.baculo
+import codigo.armas.glamdring
+import codigo.armas.Espada
+import codigo.zonas.lebennin
+import codigo.zonas.caminoDeGondor
+
+
+describe "Gandalf"{
+
+    test "Gandalf tiene 2800 de poder con todas las armas y toda la vida"{
+        assert.equals(2800, gandalf.nivelDePoder())
+    }
+    
+    test "Gandalf tiene 1200 de poder sin armas y con 80 de vida"{
+        gandalf.nivelDeVida(80)
+        gandalf.armas(#{})
+
+        assert.equals(1200, gandalf.nivelDePoder())
+    }
+
+    test "Gandalf tiene 2300 de poder con 5 de vida y su baculo"{
+        gandalf.nivelDeVida(5)
+        gandalf.armas(#{baculo})
+        
+        assert.equals(2300, gandalf.nivelDePoder())}
+
+    test "Gandalf tien 1650 de poder con 30 de vida y su espada en version Enana"{
+        const glamdring = new Espada(valorDeOrigen = 20)
+        
+        gandalf.nivelDeVida(30)
+        gandalf.armas(#{baculo,glamdring})
+
+        assert.equals(1650, gandalf.nivelDePoder())
+    }
+}
+
+describe "Tom Bombadil"{
+
+    test "Tom puede atravesar Lebennin"{
+
+        assert.that(lebennin.puedePasar(tomBombadil))
+    }
+    test "Tom atraviesa el camino que pasa por Gondor"{
+        assert.that(caminoDeGondor.puedePasar(tomBombadil))
+    }
+
+}
