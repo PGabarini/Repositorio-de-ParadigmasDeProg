@@ -14,14 +14,14 @@ object sprinfield{
 
     method velocidadDelViento() = velocidadDelViento
 
-    method centralesContaminantes() =
+    method centralesContaminantes () =
          centrales.filter({unaCentral => unaCentral.contamina()})
     
 
     method cubrioSusNecesidadesEnergeticas(necesidadEnergetica) =
         necesidadEnergetica < self.suministroEnergetico(centrales)
 
-    method suministroEnergetico(unasCentrales) = unasCentrales.sum({unaCentral => unaCentral.produccionEnergetica(self)})
+    method suministroEnergetico (unasCentrales) = unasCentrales.sum({unaCentral => unaCentral.produccionEnergetica(self)})
 
     method estaAlHorno(necesidadEnergetica) = 
     necesidadEnergetica/2 < self.suministroEnergetico( self.centralesContaminantes() )

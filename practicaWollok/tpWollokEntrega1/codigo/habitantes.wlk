@@ -1,39 +1,36 @@
-
-import armas.baculo
 import armas.glamdring
-object gandalf{
+import armas.baculo
+object gandalf {
+    var property vida = 100
+    var armas = #{baculo, glamdring}
 
-    var property nivelDeVida = 100
-    var property armas = #{baculo,glamdring}
-
+    method armas(conjuntoDeArmas) {
+        armas = conjuntoDeArmas
+    }
     
-
-    method nivelDePoder(){
-        if (nivelDeVida > 10){
-            return nivelDeVida * 15 + self.sumatoriaDelPoderDeLasArmas() * 2
-        } else{
-            return nivelDeVida * 300 + self.sumatoriaDelPoderDeLasArmas() * 2
-        }
+    method poder() =
+    if (vida >= 10){
+      self.calcularPoder(15)
+    } else {
+      self.calcularPoder(300)
     }
 
-    method sumatoriaDelPoderDeLasArmas() = armas.sum({unArma => unArma.poderOtorgado()})
+    method calcularPoder(multiplicador) = vida * multiplicador + self.poderDeArmas() * 2
+    
+    method poderDeArmas() = armas.sum({arma => arma.poder()})
 
-    method tienePoderSuficiente(unPoder) = self.nivelDePoder() > unPoder
+    method tieneSuficientePoder(unPoder) = self.poder() > unPoder
+    method tieneArmas() = not armas.isEmpty()
 
-    method tieneArmasSuficientes(unaCantidad) = armas.size() >= unaCantidad
+    method puedeAtravesar(zona) = zona.condicionParaPasar().apply(self)
 
-    method recorrerZona(unasConsecuencias){
-        nivelDeVida -= unasConsecuencias
+    // Al aplicar la consecuencia de pasar por un camino se asevera que la vida no termine siendo mayor a 100 ni menor a 0 
+    method recorrer(zona) {
+        vida = ((vida + zona.consecuenciaDePasar()).max(0)).min(100) // consecuenciaDePasar puede ser negativo o positivo
     }
 }
 
-object tomBombadil{
-
-    method tienePoderSuficiente(unPoder) = true
-
-    method tieneArmasSuficientes(unaCantidad) = true
-
-    method recorrerZona(unasConsecuencias){
-
-    }
+object tomBombadil {
+    method puedeAtravesar(zona) = true
+    method recorrer(zona) {}
 }

@@ -1,26 +1,21 @@
-object baculo{
-   
-    method poderOtorgado() = 400
-
+object baculo {
+    method poder() = 400 
 }
 
-class Espada{
-
-    const valorDeOrigen
-
-    method poderOtorgado() = 10 * valorDeOrigen
-   
-}
-
-const glamdring = new Espada(valorDeOrigen=25)
-
-
-/*class Espada{
+class Espada {
     const origen
 
-    method poderOtorgado() = 10 * self.valorSegunOrigen()
-    method valorSegunOrigen() = 
+    method poder() = 10 * origen.multiplicadorDeOrigen()
 }
 
-const glamdring = new Espada(origen="Elfico")
-*/
+const glamdring = new Espada (origen = origenElfico)
+
+class Origen{
+    const property multiplicadorDeOrigen
+}
+
+const origenElfico = new Origen (multiplicadorDeOrigen = 25)
+
+const origenEnano = new Origen (multiplicadorDeOrigen = 20)
+
+const origenHumano = new Origen (multiplicadorDeOrigen = 15)

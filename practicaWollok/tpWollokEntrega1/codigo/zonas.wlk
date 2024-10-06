@@ -1,43 +1,36 @@
-import habitantes.gandalf
+class Zona {
+    const condicionParaPasar // bloque que toma un habitante y vera si puede pasar
+    const consecuenciasDePasar // consecuencia numerica sobre la vida de quien atraviese
 
-object lebennin{
+    method condicionParaPasar() = condicionParaPasar
+    method consecuenciasDePasar() = consecuenciasDePasar
 
-    method permitirPasar(habitante) {
-        if (self.puedePasar(habitante))
-        {habitante.recorrerZona(0)}
+
+    method dejarAtravesar(unHabitante) {
+        if (unHabitante.puedeAtravesar(self)) {
+            unHabitante.recorrer(consecuenciasDePasar)
+        }
     }
-
-    method puedePasar(habitante)= habitante.tienePoderSuficiente(1500)
 }
 
-object minasTirith{
-
-    method permitirPasar(habitante){
-        if (self.puedePasar(habitante))
-        {habitante.recorrerZona(10)}
-    }
-    
-    method puedePasar(habitante) = habitante.tieneArmasSuficientes(1)
-}
-
-object lossarnach{
-
-    method permitirPasar(habitante){
-        if(self.puedePasar(habitante))
-        habitante.recorrerZona(-1)
+class Camino {
+    var zonasDelRecorrido // set de zonas que componen el camino
+    method zonasDelRecorrido(conjuntoDeZonas) {
+        zonasDelRecorrido = conjuntoDeZonas
     }
 
-    method puedePasar(habitante) = true
-}
-
-object caminoDeGondor{
-
-    var property zonasDelCamino = [lebennin,minasTirith]
-
-     method permitirPasar(habitante){
-        if(self.puedePasar(habitante))
-        {zonasDelCamino.forEach({unaZona => unaZona.permitirPasar(habitante)})}
+    method dejarAtravesar(habitante) {
+        zonasDelRecorrido.forEach({zona => zona.dejarAtravesar(habitante)})
     }
-
-    method puedePasar(habitante) = zonasDelCamino.all({unaZona => unaZona.puedePasar(habitante)})
 }
+
+const lebennin = new Zona(condicionParaPasar = {habitante => habitante.tieneSuficientePoder(1500)},
+                          consecuenciasDePasar = -10)
+
+const minasTirith = new Zona(condicionParaPasar = {habitante => habitante.tieneArmas()},
+                             consecuenciasDePasar = 0)
+
+const lossarnach = new Zona(condicionParaPasar = {true},
+                            consecuenciasDePasar = 1)
+
+const caminoDeGondor = new Camino(zonasDelRecorrido = [lebennin, minasTirith])
