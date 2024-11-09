@@ -1,0 +1,33 @@
+{"level":"info","message":"⌛ Validating parcialIntensaMENTE/personas.wlk","timeElapsed":434,"timestamp":"2024-11-09T03:36:11.280Z"}
+{"level":"info","message":"⌛ Building environment","timeElapsed":394,"timestamp":"2024-11-09T03:36:11.679Z"}
+{"level":"info","message":"⌛ Validating parcialIntensaMENTE/personas.wlk","timeElapsed":367,"timestamp":"2024-11-09T03:36:12.077Z"}
+{"level":"info","message":"⌛ Validating parcialIntensaMENTE/personas.wlk","timeElapsed":359,"timestamp":"2024-11-09T03:36:12.441Z"}
+{"level":"info","message":"⌛ Validating parcialIntensaMENTE/personas.wlk","timeElapsed":671,"timestamp":"2024-11-09T03:36:13.187Z"}
+{"level":"info","message":"⌛ Validating parcialIntensaMENTE/personas.wlk","timeElapsed":438,"timestamp":"2024-11-09T03:36:13.627Z"}
+{"level":"info","message":"⌛ Validating parcialIntensaMENTE/personas.wlk","timeElapsed":419,"timestamp":"2024-11-09T03:36:14.038Z"}
+{"level":"info","message":"⌛ Validating parcialIntensaMENTE/personas.wlk","timeElapsed":435,"timestamp":"2024-11-09T03:36:14.474Z"}
+{"level":"info","message":"⌛ Validating parcialIntensaMENTE/personas.wlk","timeElapsed":384,"timestamp":"2024-11-09T03:36:14.863Z"}
+{"level":"info","message":"⌛ Validating parcialIntensaMENTE/personas.wlk","timeElapsed":576,"timestamp":"2024-11-09T03:36:15.440Z"}
+{"level":"info","message":"⌛ Validating parcialIntensaMENTE/personas.wlk","timeElapsed":887,"timestamp":"2024-11-09T03:36:16.327Z"}
+{"level":"info","message":"⌛ Building environment","timeElapsed":627,"timestamp":"2024-11-09T03:36:35.135Z"}
+{"level":"error","message":"✘ Completions for node failed: Error: [Assignment]{f4b69b} at parcialIntensaMENTE/personas.wlk:112 exhausted all cases without a match [Assignment]{f4b69b} at parcialIntensaMENTE/personas.wlk:112 exhausted all cases without a match","stack":"Error: [Assignment]{f4b69b} at parcialIntensaMENTE/personas.wlk:112 exhausted all cases without a match\n    at c:\\Users\\W10\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.3.6\\out\\server\\src\\server.js:38:6067\n    at yh (c:\\Users\\W10\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.3.6\\out\\server\\src\\server.js:2291:42)\n    at kh (c:\\Users\\W10\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.3.6\\out\\server\\src\\server.js:2291:1004)\n    at Y5n (c:\\Users\\W10\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.3.6\\out\\server\\src\\server.js:2291:1160)\n    at c:\\Users\\W10\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.3.6\\out\\server\\src\\server.js:38:6056\n    at yh (c:\\Users\\W10\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.3.6\\out\\server\\src\\server.js:2291:42)\n    at c:\\Users\\W10\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.3.6\\out\\server\\src\\server.js:2291:2700\n    at c:\\Users\\W10\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.3.6\\out\\server\\src\\server.js:2298:3774\n    at c:\\Users\\W10\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.3.6\\out\\server\\src\\server.js:37:74872\n    at Fe (c:\\Users\\W10\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.3.6\\out\\server\\src\\server.js:7:8527)","timestamp":"2024-11-09T03:36:35.273Z"}
+{"level":"info","message":"⌛ Autocomplete - Reference","timeElapsed":125,"timestamp":"2024-11-09T03:36:35.280Z"}
+{"level":"info","message":"⌛ Building environment","timeElapsed":284,"timestamp":"2024-11-09T03:36:35.566Z"}
+{"level":"info","message":"⌛ Building environment","timeElapsed":281,"timestamp":"2024-11-09T03:36:35.850Z"}
+{"level":"info","message":"⌛ Building environment","timeElapsed":318,"timestamp":"2024-11-09T03:36:36.170Z"}
+{"level":"info","message":"⌛ Building environment","timeElapsed":444,"timestamp":"2024-11-09T03:36:36.648Z"}
+{"level":"info","message":"⌛ Validating parcialIntensaMENTE/personas.wlk","timeElapsed":495,"timestamp":"2024-11-09T03:36:37.146Z"}
+{"level":"info","message":"⌛ Building environment","timeElapsed":384,"timestamp":"2024-11-09T03:36:37.532Z"}
+{"level":"info","message":"⌛ Validating parcialIntensaMENTE/personas.wlk","timeElapsed":348,"timestamp":"2024-11-09T03:36:37.894Z"}
+{"level":"info","message":"⌛ Validating parcialIntensaMENTE/personas.wlk","timeElapsed":585,"timestamp":"2024-11-09T03:36:38.480Z"}
+{"level":"info","message":"⌛ Validating parcialIntensaMENTE/personas.wlk","timeElapsed":472,"timestamp":"2024-11-09T03:36:38.955Z"}
+{"level":"info","message":"⌛ Validating parcialIntensaMENTE/personas.wlk","timeElapsed":387,"timestamp":"2024-11-09T03:36:39.429Z"}
+{"level":"info","message":"⌛ Validating parcialIntensaMENTE/personas.wlk","timeElapsed":361,"timestamp":"2024-11-09T03:36:39.790Z"}
+{"level":"info","message":"⌛ Building environment","timeElapsed":435,"timestamp":"2024-11-09T03:37:01.529Z"}
+{"level":"info","message":"⌛ Validating parcialIntensaMENTE/misExceptions.wlk","timeElapsed":881,"timestamp":"2024-11-09T03:37:02.432Z"}
+{"level":"info","message":"⌛ Building environment","timeElapsed":2198,"timestamp":"2024-11-09T03:38:01.654Z"}
+{"level":"info","message":"onRequest - STRONG_FILES_CHANGED:c:\\Users\\W10\\Desktop\\Repositorio-de-ParadigmasDeProg\\practicaWollok\\parcialMomento\\parcialIntensaMENTE\\personas.wlk","timestamp":"2024-11-09T03:38:01.714Z"}
+{"level":"info","message":"⌛ Building environment","timeElapsed":585,"timestamp":"2024-11-09T03:38:02.299Z"}
+{"level":"info","message":"⌛ Building environment","timeElapsed":289,"timestamp":"2024-11-09T03:38:02.588Z"}
+{"level":"info","message":"⌛ Validating parcialIntensaMENTE/rilei.wlk","timeElapsed":3085,"timestamp":"2024-11-09T03:38:05.688Z"}
+{"level":"info","message":"Removing diagnostics from \\Users\\W10\\Desktop\\Repositorio-de-ParadigmasDeProg\\practicaWollok\\parcialMomento\\parcialIntensaMENTE\\personas.wlk","timestamp":"2024-11-09T03:38:05.689Z"}

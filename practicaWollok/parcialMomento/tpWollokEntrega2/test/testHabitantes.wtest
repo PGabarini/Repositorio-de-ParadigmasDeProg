@@ -1,0 +1,99 @@
+import codigo.armas.baculoDeGandalf
+import codigo.armas.glamdring
+import codigo.armas.origenEnano
+import codigo.armas.Espada
+
+
+import codigo.habitantes.gandalf
+import codigo.habitantes.tomBombadil
+import codigo.habitantes.frodo
+import codigo.habitantes.gimli
+import codigo.habitantes.legolas
+import codigo.habitantes.aragorn
+
+import codigo.gondor.lebennin
+import codigo.gondor.belfalas
+import codigo.gondor.minasTirith
+
+import codigo.zonas.Camino
+
+
+describe "Gandalf"{
+
+    test "El poder de Gandalf con toda la vida y todas sus armas es de 2900"{
+
+        assert.equals(2900, gandalf.poder()) //responde 2900 porque se modificaron los valores de Espada Origen Elfico.
+    }
+
+    test "El poder de Gandalf con 80 de vida y sin armas es de 1200 "{
+        gandalf.vida(80)
+        gandalf.armas(#{})
+
+        assert.equals(1200, gandalf.poder())
+    }
+
+    test "El poder de Gandalf con 5 de vida y su baculo es de 2300"{
+        gandalf.vida(5)
+        gandalf.armas(#{baculoDeGandalf})
+
+        assert.equals(2300, gandalf.poder())
+    }
+
+    test "El poder de Gandalf con 30 de vida, su baculo y su espada en version Enana es de 1650"{
+        const glamdringEnano = new Espada (origen = origenEnano, multiplicadorDePoder = 10)
+
+        gandalf.vida(30)
+        gandalf.armas(#{baculoDeGandalf,glamdringEnano})
+
+        assert.equals(1650, gandalf.poder())
+    }
+
+    test "Gandalf con 9 de vida, y todas sus armas" {
+      gandalf.vida(9)
+      assert.equals(4100, gandalf.poder())
+    }
+}
+
+describe "Tom Bombadil" {
+  test "Tom puede atravesar Lebennin" {
+    
+    assert.that(lebennin.puedeSerRecorridoPor([tomBombadil]))
+  }
+
+ //Este test no tiene mucho sentido ya que Tom NO tiene estado, por lo que no hay nada para
+// verificar si hubo o no efecto. Se chequea en su lugar si puede atravesar el camino 
+  test "Que Tom atraviese el camion de Gondor no produce ningun efecto"{
+    const gondor = new Camino (zonasDelRecorrido = [lebennin, belfalas, minasTirith])
+
+    assert.that(gondor.puedeSerRecorridoPor([tomBombadil])) 
+  }
+}
+
+describe "Frodo" {
+  test "Poder de Frodo (sin items)" {
+    assert.equals(290, frodo.poder())
+  }
+}
+
+describe "Gimli" {
+  test "Poder de Gimli" {
+    assert.equals(2175, gimli.poder())
+  }
+}
+
+describe "Légolas" {
+  test "Poder de Légolas" {
+    assert.equals(2480, legolas.poder())
+  }
+
+  test "Poder de Légolas que obtiene medio punto de destreza propia" {
+    legolas.destrezaPropia(1.5)
+    assert.equals(2880, legolas.poder())
+  }
+}
+
+describe "Aragorn" {
+  test "Poder de Aragorn" {
+    assert.equals(2720, aragorn.poder())
+  }
+}

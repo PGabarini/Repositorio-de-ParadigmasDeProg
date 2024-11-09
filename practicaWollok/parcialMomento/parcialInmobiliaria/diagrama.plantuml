@@ -1,0 +1,114 @@
+@startuml diagramaDelCodigo
+
+class Cliente { 
+reservasPropias
+--
+agregarReserva(reservaDeInmueble)
+pedirReserva(unaPropiedad,unEmpleado)
+pedirConcretarOperacion(unaPropiedad,unEmpleado)
+} 
+
+class Empleado { 
+dinero
+reservas
+operaciones
+--
+operaciones()
+reservar(unaPropiedad,unCliente)
+puedeVenderse(unaPropiedad,unCliente)
+agregarReserva(unaReserva)
+cobrar(unaCantidad)
+realizarOperacion(unaPropiedad,unCliente)
+operoEnMismaZonaQue(otroEmpleado)
+operoEn(unaZona)
+hizoOperacionDe(otroEmpleado)
+tieneReservada(unaPropiedad)
+} 
+
+class Reserva { 
+clienteQueReserva
+propiedadReservada
+--
+clienteQueReserva()
+propiedadReservada()
+} 
+
+object inmobiliaria { 
+empleados
+--
+mejorEmpleado(unCriterio)
+tendranProblemas(unEmpleado,otroEmpleado)
+realizaronOperacionesEnMismaZona(unEmpleado,otroEmpleado)
+noFueronLeales(unEmpleado,otroEmpleado)
+} 
+
+class Inmueble { 
+tamano
+cantidadAmbientes
+operacionPublicada
+--
+puedeVenderse()
+operacionPublicada()
+realizarOperacion(unEmpleado)
+zonaUbicada
+zonaUbicada()
+valor}classCasainheritsInmueble{constvalorDeCasaoverridemethodvalor()
+} 
+
+class Ph { 
+valor()
+} 
+
+class Departamento { 
+valor()
+} 
+
+class Local { 
+tipoDeLocal
+--
+valor()
+puedeVenderse()
+} 
+
+object localALacalle { 
+montoFijo
+--
+montoFijo()
+valorSegunTipo(valorBase)
+} 
+
+object galpon { 
+valorSegunTipo(valorBase)
+} 
+
+class Operacion { 
+inmueble
+--
+inmueble()
+comision()
+pagarComision(unEmpleado)
+zonaDeOperacion()
+} 
+
+class Venta { 
+porcentajeComision
+--
+porcentajeComision(unPorcentaje)
+comision()
+} 
+
+class Alquiler { 
+mesesAlquiler
+--
+comision()
+} 
+
+class Zona { 
+ubicacion
+plus
+--
+plus()
+} 
+
+
+@enduml

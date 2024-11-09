@@ -1,0 +1,31 @@
+import codigo.zonas.*
+import codigo.habitantes.*
+import codigo.gondor.*
+import codigo.rohan.*
+
+
+describe "Test de Zonas" {
+    test "Un grupo no puede pasar por una zona por requerimiento de item" {
+        assert.notThat(minasTirith.puedeSerRecorridoPor(#{frodo, gimli, aragorn}))
+    }
+
+    test "Un grupo no puede pasar por una zona por requerimiento de guerrero" {
+        assert.notThat(bosqueDeFangorn.puedeSerRecorridoPor(#{tomBombadil, gollum}))
+    }
+
+    test "Un grupo puede pasar por una zona" {
+        assert.that(lebennin.puedeSerRecorridoPor([tomBombadil, frodo]))
+    }
+}
+
+describe "Test de Caminos" {
+    test "Un grupo no puede atravesar un camino" {
+        const camino = new Camino (zonasDelRecorrido = [belfalas, lebennin])
+        assert.notThat(camino.puedeSerRecorridoPor([frodo]))
+    }
+
+    test "Un grupo puede atravesar un camino" {
+        const camino = new Camino (zonasDelRecorrido = [bosqueDeFangorn, edoras, belfalas, lebennin])
+        assert.that(camino.puedeSerRecorridoPor([gandalf, gollum]))
+    }
+}

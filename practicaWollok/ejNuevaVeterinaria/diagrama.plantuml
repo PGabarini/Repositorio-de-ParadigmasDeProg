@@ -1,0 +1,62 @@
+@startuml animales
+abstract class Animal{
+    responsable
+    energia
+
+    energia()
+    responsable()
+    gritoNombreResponsable()
+    comer(unosGramos)
+    pasarElTiempo(unTiempo)
+    estaFeliz()
+    curar()
+}
+class Golondrina{
+    dondeEsta
+    
+    dondeEsta()
+    comer(unosGramos)
+    volarHacia(unaCiudad)
+    estaFeliz()
+    curar()
+    pasarElTiempo(unTiempo)
+}
+class Caballo{
+    comer(unosGramos)
+    galopar(unaDistancia)
+    estaFeliz()
+    curar()
+  }
+class Perro{
+    juguetes
+    comer(unosGramos)
+    estaFeliz()
+    curar()
+    perseguirA(unGato)
+}
+class Gato{ 
+    comer(unosGramos) 
+    estaFeliz() 
+    curar() 
+    serPerseguido()
+  }
+object huellitas{
+    pacientes
+  }
+object pegaso{
+    dondeEsta
+--
+    volarHacia(unaCiudad)
+    estaFeliz()
+    pasarElTiempo(unTiempo)
+}
+
+
+  Golondrina --|> Animal
+  Caballo --|> Animal
+  Perro --|> Animal
+  Gato --|> Animal
+  Perro .> Gato
+  huellitas -->"      pacientes*" Animal
+  pegaso --|> Caballo
+@enduml

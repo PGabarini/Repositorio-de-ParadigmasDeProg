@@ -1,0 +1,135 @@
+@startuml diagramaDelCodigo
+
+class Espada { 
+multiplicadorDePoder
+origen
+--
+poder()
+} 
+
+class Baculo { 
+poder
+--
+poder()
+} 
+
+class Daga { 
+poder()
+} 
+
+class Arco { 
+tension
+longitud
+--
+poder()
+} 
+
+class Hacha { 
+largoDelMango
+pesoDeLaHoja
+--
+poder()
+} 
+
+class Origen { 
+valorDeOrigen
+} 
+
+class Guerrero { 
+vida
+armas
+items
+--
+poderDeArmas()
+poder()
+cantidadDe(itemRequerido)
+tieneSuficienteVida(cantidadDeVida)
+tieneSuficientePoder(cantidadDePoder)
+tieneSuficientesArmas(cantidadDeArmas)
+tieneSuficientesItems(cantidadDeItems)
+} 
+
+class Hobbit extendes Guerrero{ 
+poder()
+} 
+
+class Enano extendes Guerrero{ 
+factorDePoder
+--
+poder()
+} 
+
+class Elfo extendes Guerrero{ 
+destrezaBase
+destrezaPropia
+--
+poder()
+} 
+
+class Humano extendes Guerrero{ 
+limitadorDePoder
+--
+poder()
+} 
+
+class Maiar extendes Guerrero { 
+poder()
+calcularPoder(factorDePoder)
+} 
+
+object factorDePoderMaiarBasico { 
+factor
+} 
+
+object factorDePoderMaiarBajoAmenaza { 
+factor
+} 
+
+object tomBombadil extendes Guerrero{ 
+poder()
+} 
+
+object gollum extendes Hobbit{ 
+poder()
+} 
+
+class Zona { 
+requerimiento
+--
+puedeSerRecorridoPor(grupoDeGuerreros)
+} 
+
+class Camino { 
+zonasDelRecorrido
+--
+puedeSerRecorridoPor(grupoDeGuerreros)
+itemRequerido
+cantidadRequerida
+evaluar(grupoDeGuerreros)
+} 
+
+class RequerimientoDeGuerrero { 
+bloqueDeAtributoRequerido
+--
+evaluar(grupoDeGuerreros)
+} 
+
+object sinRequerimiento { 
+evaluar(grupoDeGuerreros)
+} 
+
+interface arma{
+    poder()
+}
+
+Guerrero -->"*" arma
+Daga ..|> arma
+Espada ..|> arma
+Espada --> Origen
+Baculo ..|> arma
+Hacha ..|> arma
+Arco ..|> arma
+Camino --> "*" Zona
+Zona ..> Guerrero
+
+@enduml

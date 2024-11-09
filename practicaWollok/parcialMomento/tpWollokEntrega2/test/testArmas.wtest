@@ -1,0 +1,42 @@
+import codigo.armas.Espada
+import codigo.armas.Arco
+import codigo.armas.Hacha
+import codigo.armas.Daga
+import codigo.armas.origenEnano
+describe "Espada"{
+
+    test "Espada con multiplicador de 15 y de origen Enano tiene 300 de poder"{
+
+        const espadaDeTest = new Espada (origen = origenEnano, multiplicadorDePoder = 15)
+
+        assert.equals(300,espadaDeTest.poder())
+    }
+    }
+describe "Daga"{
+    test "Daga con multiplicador de 15 y origen Enano tiene poder de 150"{
+        const dagaDeTest = new Daga(origen = origenEnano, multiplicadorDePoder = 15)
+
+        assert.equals(150,dagaDeTest.poder())
+    }
+    } 
+describe "Hacha"{  
+    test "Hacha con mango de 50 cm, con una hoja de 5kg tiene un poder 250"{
+        const hachaDeTest = new Hacha(largoDelMango = 50,pesoDeLaHoja=5)
+
+        assert.equals(250,hachaDeTest.poder())
+    }
+    }
+describe "Arco"{
+    test "Arco con longitud de 110cm tiene 440 de poder"{
+        const arcoDeTest = new Arco(longitud = 110)
+
+        assert.equals(440,arcoDeTest.poder())
+    }
+
+    test "Arco con longitud de 110cm y cambiando su tension a 35kg tiene 385 de poder"{
+        const arcoDeTest = new Arco(longitud = 110)
+        arcoDeTest.tension(35)
+
+        assert.equals(385,arcoDeTest.poder())
+    }
+    }

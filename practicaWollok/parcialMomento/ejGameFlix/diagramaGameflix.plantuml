@@ -1,0 +1,73 @@
+@startuml diagramaDelCodigo
+
+class Cliente { 
+humor
+plata
+suscripcion
+--
+suscripcion(unaSuscripcion)
+pagar(unaCantidad)
+aumentarHumor(unaCantidad)
+bajarHumor(unaCantidad)
+pagarSuscripcion()
+jugar(unJuego,unasHoras)
+} 
+
+object gameflix { 
+juegos
+clientes
+--
+juegosDeCategoria(unaCategoria)
+juegoQueSeLlama(unNombre)
+juegoRecomendado()
+cobrarSuscripciones()
+} 
+
+class Juego { 
+nombre
+precio
+categoria
+--
+nombre()
+perteneceACategoria(unaCategoria)
+seLlama(unNombre)
+afectarA(unCliente,unasHoras)
+saleMenosQue(unaCantidad)
+} 
+
+class JuegoViolento { 
+afectarA(unCliente,unasHoras)
+} 
+
+class Moba { 
+afectarA(unCliente,unasHoras)
+} 
+
+class JuegoDeTerror { 
+afectarA(unCliente,unasHoras)
+} 
+
+class JuegoEstrategico { 
+afectarA(unCliente,unasHoras)
+} 
+
+object premium { 
+precio()
+puedeJugar(unJuego)
+} 
+
+object base { 
+precio()
+puedeJugar(unJuego)
+} 
+
+class SuscripcionPorCategoria { 
+categoria
+precio
+--
+precio()
+puedeJugar(unJuego)
+} 
+
+
+@enduml

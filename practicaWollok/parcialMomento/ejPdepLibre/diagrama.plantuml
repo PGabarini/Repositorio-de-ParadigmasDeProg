@@ -1,0 +1,83 @@
+@startuml diagramaDelCodigo
+
+class Cupon { 
+fueUsado
+porcentajeDescuento
+--
+porcentajeDescuento()
+serUsado()
+} 
+
+class NivelLimitado { 
+limiteDeCarrito
+--
+puedeAgregarProductos(unTamanoDeCarrito)
+} 
+
+interface Nivel{
+    puedeAgregarProductos(unTamanoDeCarrito)
+}
+
+object oro { 
+puedeAgregarProductos(unTamanoDeCarrito)
+} 
+
+object pdpLIBRE { 
+usuarios
+productos
+--
+castigarMorosos()
+eliminarCuponesUsados()
+obtenerNombresDeProductos()
+actualizarNiveles()
+} 
+
+abstract class Producto { 
+precio
+--
+precioBase()
+abstract precioFinal()
+nombreEnOferta()
+}
+
+class Mueble extends Producto{
+precioFinal()
+} 
+
+class Indumentaria extends Producto { 
+esDeTemporada
+--
+precioFinal()
+} 
+
+class Ganga extends Producto{ 
+precioFinal()
+nombreEnOferta()
+} 
+
+class Usuario { 
+puntos
+nivel
+dinero
+cupones
+productosEnCarrito
+--
+agregarAlCarrito(unProducto)
+actualizarNivel()
+nivelDeAscenso()
+comprarLosProductos()
+precioDelCarrito()
+sumarPuntos(unPago)
+esMoroso()
+eliminarCuponesUsados()
+bajarPuntos(unaCantidad)
+} 
+
+Usuario --> "*" Cupon
+Usuario --> "*" Producto
+Usuario --> Nivel
+pdpLIBRE--> "*" Producto
+pdpLIBRE --> "*" Usuario
+NivelLimitado .d.|> Nivel
+oro .d.|> Nivel
+@enduml

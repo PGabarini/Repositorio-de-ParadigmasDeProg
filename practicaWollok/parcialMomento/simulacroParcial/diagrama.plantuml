@@ -1,0 +1,75 @@
+@startuml diagramaDelCodigo
+
+class Grupo { 
+integrantes
+--
+podemosEscapar(unaSala)
+escaparDe(unaSala)
+valorDeSalaPorIntegrante
+puedenPagarla(unaSala)
+montoDeGrupo
+} 
+
+class Persona { 
+saldo
+salasEscapadas
+maestria
+--
+saldo()
+maestria(unaMaestria)
+puedeEscapar(unaSala)
+escaparDe(unaSala)
+pagar(unValor)
+salasQueSalio()
+subirDeNivel()
+} 
+
+object maestriaProfesional{ 
+permiteSalir(unaSala,salasEscapadas)
+} 
+
+object maestriaAmateur { 
+permiteSalir(unaSala,salasEscapadas)
+} 
+
+interface Maestria{
+   permiteSalir(unaSala,salasEscapadas)
+}
+
+abstract class Sala { 
+nombre
+dificultad
+valorBase
+--
+dificultad()
+esDificil()
+valor()
+extraSegunGenero()
+} 
+
+class SalaAnime extends Sala{ 
+extraSegunGenero()
+} 
+
+class SalaHistoria extends Sala{ 
+esBasada
+--
+extraSegunGenero()
+esDificil()
+} 
+
+class SalaTerror extends Sala{ 
+sustos
+--
+extraSegunGenero()
+esDificil()
+} 
+
+Grupo ..> Sala
+Grupo --> "*" Persona
+Persona --> Maestria
+Persona --> "*" Sala
+maestriaAmateur ..|> Maestria
+maestriaProfesional ..|> Maestria
+
+@enduml

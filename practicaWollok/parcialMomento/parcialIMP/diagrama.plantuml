@@ -1,0 +1,88 @@
+@startuml diagramaDelCodigo
+
+class Artista { 
+ahorros
+cantPeliculasActuadas
+experiencia
+--
+cantPeliculasActuadas()
+nivelDeFama()
+reCategorizarExperiencia()
+sueldo()
+actuar()
+} 
+
+interface Experiencia{
+puedeSubir(unArtista)
+nivelMayor()
+sueldoDeArtista(unArtista)
+}
+
+object experienciaAmateur { 
+puedeSubir(unArtista)
+nivelMayor()
+sueldoDeArtista(unArtista)
+} 
+
+object experienciaEstablecida { 
+puedeSubir(unArtista)
+nivelMayor()
+sueldoDeArtista(unArtista)
+} 
+
+object experienciaEstrella { 
+puedeSubir(unArtista)
+nivelMayor()
+sueldoDeArtista(unArtista)
+} 
+
+abstract class Pelicula { 
+nombre
+elenco
+--
+presupuesto()
+sueldoDelElenco()
+ganancias()
+recaudacion()
+extraSegunTipo()
+} 
+
+class Drama extends Pelicula{ 
+extraSegunTipo()
+} 
+
+class Acccion extends Pelicula{ 
+vidriosRotos
+--
+presupuesto()
+extraSegunTipo()
+} 
+
+class Terror extends Pelicula{ 
+cuchos
+--
+extraSegunTipo()
+} 
+
+class Comedia extends Pelicula{ 
+extraSegunTipo()
+} 
+
+object imp { 
+artistas
+peliculas
+--
+artistaMejorPago()
+peliculasEconomicas()
+gananciaDeLasEconomicas()
+recategorizarATodos()
+} 
+
+imp -->"*" Pelicula
+imp -->"*" Artista
+Artista --> Experiencia
+experienciaAmateur ..|> Experiencia
+experienciaEstablecida ..|> Experiencia
+experienciaEstrella ..|> Experiencia
+
+@enduml
