@@ -1,0 +1,112 @@
+@startuml diagramaDelCodigo
+
+class Barrio { 
+ninos
+--
+los3Mejores()
+elementosDeNinoscon10Caramelos()
+ninosCon10Caramelos
+} 
+
+class Adulto { 
+ninosQueLoQuisieronAsustar
+--
+tolerancia()
+ninosCon15Caramelos
+seAsusta(unNino)
+caramelosQueDa()
+} 
+
+class Abuelo Extends Adulto{ 
+seAsusta(unNino)
+caramelosQueDa()
+} 
+
+class Necio Extends Adulto{ 
+seAsusta(unNino)
+} 
+
+class Legion { 
+ninos
+--
+capacidadDeAsustar()
+caramelosDeLegion()
+asustar(unAdulto)
+algunoAsusta(unAdulto)
+liderDeLaLegion()
+} 
+
+class Nino { 
+elementos
+actitud
+caramelos
+estado
+--
+actitud()
+elementos()
+caramelos()
+estado(unEstado)
+capacidadDeAsustar()
+sustoDeElementos()
+asustar(unAdulto)
+recibirCaramelos(unaCantidad)
+tieneCaramelos(unaCantidad)
+comer(unosCaramelos)
+bajarActitud(unPorcentaje)
+}
+
+interface Elemento{
+    susto()
+}
+
+object maquillaje { 
+susto()
+} 
+
+class TrajeTierno { 
+susto()
+} 
+
+class TrajeTerrorifico { 
+susto()
+} 
+
+class Estado { 
+estadoSiguiente
+bajadaDeActitud
+--
+puedeAsustar()
+puedeDigerir(unosCaramelos)
+digerir(unosCaramelos,unNino)
+} 
+
+object enCama { 
+puedeAsustar()
+puedeDigerir(unosCaramelos)
+digerir(unosCaramelos,unNino)
+} 
+
+interface EstadoNino
+{
+ puedeAsustar()
+puedeDigerir(unosCaramelos)
+digerir(unosCaramelos,unNino)
+}
+
+maquillaje ..|> Elemento
+TrajeTerrorifico ..|> Elemento
+TrajeTierno ..|> Elemento
+
+Nino --> "*" Elemento
+
+Legion -->"*" Nino
+
+Barrio -->"*" Nino
+
+Nino --> EstadoNino
+
+Adulto ..> Nino
+
+Estado ..|> EstadoNino
+enCama ..|> EstadoNino
+@enduml

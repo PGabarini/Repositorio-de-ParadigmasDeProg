@@ -5,7 +5,7 @@ class Pelicula{
     method presupuesto()=
         self.sueldoDelElenco() *1.70
 
-    method sueldoDelElenco() = elenco.map({unArtista => unArtista.sueldo()})
+    method sueldoDelElenco() = elenco.sum({unArtista => unArtista.sueldo()})
     
     method ganancias() = self.recaudacion() - self.presupuesto()
 

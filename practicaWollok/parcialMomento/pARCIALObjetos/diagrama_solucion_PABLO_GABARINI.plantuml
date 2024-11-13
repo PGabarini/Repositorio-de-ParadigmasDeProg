@@ -1,0 +1,104 @@
+@startuml diagramaDelCodigo
+
+object abonoFan { 
+descontar(unPrecio)
+} 
+
+class AbonoVip { 
+descuentoUnico
+--
+descontar(unPrecio)
+aumentarDescuento(unaCantidad)
+}
+
+interface Abono
+{
+descontar(unPrecio)
+}
+
+class Asistente { 
+abono
+historialDeEntradas
+dinero
+--
+abono()
+comprarEntradaPara(unaBanda,unaFecha)
+precioAPagar
+tieneDinero()
+pagar(unaCantidad)
+entradasQueSacoElAnoPasado()
+bandasQueComproEntrada()
+gastoEnEntradas()
+cantidadDehowsALosQueFue()
+bonificarAbono(unaCantidad)
+} 
+
+abstract class Banda { 
+nombre
+--
+presupuesto()
+canon()
+popularidad()
+gastoExtraSegunBanda()
+} 
+
+class Rock extends Banda{ 
+cantidadDeSolosDeGuitarra
+--
+gastoExtraSegunBanda()
+popularidad()
+} 
+
+class Trap extends Banda{ 
+tieneHielo
+--
+gastoExtraSegunBanda()
+popularidad()
+canon()
+} 
+
+class Indie extends Banda{ 
+cantidadDeInstrumentos
+--
+popularidad()
+gastoExtraSegunBanda()
+} 
+
+class Entrada { 
+bandaQueToca
+fechaDeShow
+--
+bandaQueToca()
+fechaDeShow()
+precio()
+fueShowElAnoPasado()
+diaDeHoy
+} 
+
+object pdpEntertainment { 
+impuestoPropio
+asistentesAlShow
+bandasQueAsisten
+--
+gananciasDelShow()
+recaudacionDelShow()
+presupuestoDeLasBandas()
+impuestoPropio()
+impuestoPropio(unNuevoImpuesto)
+bonificarLosVips()
+asistentesVip
+esVip(unAsistente)
+bandaMasPopular()
+cantidadDeEntradasVenidadas()
+} 
+
+Asistente --> Abono
+Asistente --> "*" Entrada
+
+pdpEntertainment -->"*" Banda
+pdpEntertainment -->"*" Asistente
+
+abonoFan ..|> Abono
+AbonoVip ..|> Abono
+
+@enduml

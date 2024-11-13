@@ -49,30 +49,32 @@ tieneSuficientesArmas(cantidadDeArmas)
 tieneSuficientesItems(cantidadDeItems)
 } 
 
-class Hobbit extendes Guerrero{ 
+
+class Hobbit Extendes Guerrero{ 
+
 poder()
 } 
 
-class Enano extendes Guerrero{ 
+class Enano Extendes Guerrero{ 
 factorDePoder
 --
 poder()
 } 
 
-class Elfo extendes Guerrero{ 
+class Elfo Extendes Guerrero{ 
 destrezaBase
 destrezaPropia
 --
 poder()
 } 
 
-class Humano extendes Guerrero{ 
+class Humano Extendes Guerrero{ 
 limitadorDePoder
 --
 poder()
 } 
 
-class Maiar extendes Guerrero { 
+class Maiar Extendes Guerrero { 
 poder()
 calcularPoder(factorDePoder)
 } 
@@ -85,7 +87,7 @@ object factorDePoderMaiarBajoAmenaza {
 factor
 } 
 
-object tomBombadil extendes Guerrero{ 
+object tomBombadil Extendes Guerrero{ 
 poder()
 } 
 
